@@ -1,5 +1,3 @@
-FROM openjdk:17-alpine
-VOLUME /tmp
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} notification-service.jar
-ENTRYPOINT ["java","-jar","/notification-service.jar"]
+FROM eclipse-temurin:17-jdk
+COPY target/notification-service-0.0.1-SNAPSHOT.jar app.jar
+ENTRYPOINT ["java", "-jar", "/app.jar"]
